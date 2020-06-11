@@ -1,0 +1,7 @@
+REPOSITORY                TAG                 IMAGE ID            CREATED             SIZE
+vdaishi/ubuntu-tmp-file   latest              3e73faf90b78        3 seconds ago       125MB
+<none>                    <none>              1de685cb3000        58 seconds ago      125MB
+ubuntu                    16.04               005d2078bdfa        6 weeks ago         125MB
+hello-world               latest              bf756fb1ae65        5 months ago        13.3kB
+
+inspect контейнера содержит в себе информацию у сетевом интерфейсе(NetworkSettings) и о созданной конфигурации (HostConfig), а так же о текущем состоянии контейнера (State)do в то время как в образе такой информации нет. Таким о
