@@ -102,3 +102,5 @@ COPY start.sh /start.sh
 ### Задание со *
 
 В рамках задания была создана конфигурация terraform ansible packer для запуска приложения при помощи docker.
+
+#
