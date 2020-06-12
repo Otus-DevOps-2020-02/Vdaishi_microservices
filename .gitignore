@@ -1,0 +1,5 @@
+terraform.tfvars
+gcpkey.json
+variables.json
+.terraform/
+*.tfstate
