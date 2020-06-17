@@ -3,3 +3,4 @@ gcpkey.json
 variables.json
 .terraform/
 *.tfstate
+.env
