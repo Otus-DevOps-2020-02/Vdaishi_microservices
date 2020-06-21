@@ -268,3 +268,38 @@ docker build --squash
 Имя при запуске проекта получается из имени папки, в которой находится проект.
 
 Так же можно задать его в `.env `файле в переменной `COMPOSE_PROJECT_NAME`
+
+# Практика Gitlab-CI
+
+Для работы образа `gitlab-ci` понадобится машина со следующими параметрами
+- 1 CPU
+- 3.75GB RAM
+- 50-100 GB HDD
+- Ubuntu 16.04
+
+В работе мы будем использовать omnibus установку, которая позволит быстро запустить сервис.
+
+Параметры образа расположены в файле `gitlab-ci/docker-compose.yml`
+
+Раннеры у нас прописываются в файле `.gitlab-ci.yml`
+
+для работы с нашим `Gitlab` в репозитории требуется выполнить команду
+
+```
+git remote add gitlab http://<your-vm-ip>/homework/example.git
+```
+
+для создания раннера в докере необходимы команды
+
+```
+docker run -d --name gitlab-runner --restart always \
+-v /srv/gitlab-runner/config:/etc/gitlab-runner \
+-v /var/run/docker.sock:/var/run/docker.sock \
+gitlab/gitlab-runner:latest
+```
+
+После запуска раннера, требуется его зарегистрировать (Токен можно получить в настройках раннера)
+
+```
+docker exec -it gitlab-runner gitlab-runner register --run-untagged --locked=false
+```

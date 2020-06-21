@@ -1,9 +1,10 @@
 version: '3.3'
 services:
-  post_db:
+  db:
     image: mongo:${VERSION_MONGO:-3.2}
+    alias: comment_db
     volumes:
-      - post_db:/data/db
+      - db:/data/db
     networks:
       - back_net
   post:
@@ -28,7 +29,7 @@ services:
 
 
 volumes:
-  post_db:
+  db:
 
 networks:
   back_net:
