@@ -303,3 +303,21 @@ gitlab/gitlab-runner:latest
 ```
 docker exec -it gitlab-runner gitlab-runner register --run-untagged --locked=false
 ```
+
+
+# Введение в мониторинг
+
+#### План:
+- Prometheus: запуск, конфигурация, знакомство с Web UI
+- Мониторинг состояния микросервисов
+- Сбор метрик хоста с использованием экспортера
+
+
+В рамках данной работы используется образ `prometheus` `prom\prometheus:v2.1.0`.
+Образ Prometheus собирается из папки `monitoring\prometheus`. Конфигурация мониторинга указывается в файле prometheus.yml
+
+Для запуска используется `docker-compose`.
+
+Мониторинг осуществляется доступностью портов сервисов, а так же при помощи `Node-exporter`
+
+после развертывания prometheus будет доступен на порту `9000`
