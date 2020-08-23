@@ -2,18 +2,18 @@
 apiVersion: apps/v1beta2
 kind: Deployment
 metadata:
-  name: mongo-deployment
+  name: ui-deployment
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: mongo
+      app: ui
   template:
     metadata:
-      name: mongo
+      name: ui
       labels:
-        app: mongo
+        app: ui
     spec:
       containers:
-      - image: mongo
-        name: mongo
+      - image: vdaishi/ui:2.0
+        name: ui
