@@ -15,7 +15,7 @@ services:
   post:
     image: ${USER_NAME}/post:${VERSION_POST:-latest}
     environment:
-      - ZIPKIN_ENABLED
+      - ZIPKIN_ENABLED=${ZIPKIN_ENABLED}
     networks:
       - back_net
       - front_net
@@ -26,14 +26,14 @@ services:
   comment:
     image: ${USER_NAME}/comment:${VERSION_COMMENT:-latest}
     environment:
-      - ZIPKIN_ENABLED
+      - ZIPKIN_ENABLED=${ZIPKIN_ENABLED}
     networks:
       - back_net
       - front_net
   ui:
     image: ${USER_NAME}/ui:${VERSION_UI:-latest}
     environment:
-      - ZIPKIN_ENABLED
+      - ZIPKIN_ENABLED=${ZIPKIN_ENABLED}
     ports:
       - ${PORT_PUMA:-9292}:${PORT_UI:-9292}/tcp
     logging:
