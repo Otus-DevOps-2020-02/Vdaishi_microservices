@@ -34,7 +34,7 @@ resource "google_container_node_pool" "primary_nodes" {
   name       = "app-project"
   location   = var.location
   cluster    = google_container_cluster.k8s.name
-  node_count = 4
+  node_count = var.count_ins
 
   node_config {
     preemptible  = true

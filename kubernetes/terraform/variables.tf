@@ -6,7 +6,7 @@ variable "region" {
   description = "Region"
 
   # Значение по умолчанию
-  default = "europe-west1"
+  default = "europe-west4"
 }
 
 variable "location" {
@@ -15,4 +15,7 @@ variable "location" {
 
 variable "machine_type" {
   description = "type of machine"
+}
+variable "count_ins" {
+  description = "number nodes-machines"
 }
