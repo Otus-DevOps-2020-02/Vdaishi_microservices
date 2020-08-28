@@ -321,3 +321,4 @@ docker exec -it gitlab-runner gitlab-runner register --run-untagged --locked=fal
 Мониторинг осуществляется доступностью портов сервисов, а так же при помощи `Node-exporter`
 
 после развертывания prometheus будет доступен на порту `9000`
+
