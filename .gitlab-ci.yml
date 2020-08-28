@@ -31,14 +31,6 @@ test_integration_job:
   script:
     - echo 'Testing 2'
 
-deploy_dev_job:
-  stage: review
-  script:
-    - echo 'Deploy'
-  environment:
-    name: dev
-    url: http://dev.example.com
-
 branch review:
   stage: review
   script: echo "Deploy to $CI_ENVIRONMENT_SLUG"
@@ -49,6 +41,14 @@ branch review:
   - branches
   except:
   - master
+
+deploy_dev_job:
+  stage: review
+  script:
+    - echo 'Deploy'
+  environment:
+    name: dev
+    url: http://dev.example.com
 
 stage:
   stage: stage
