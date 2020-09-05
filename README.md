@@ -304,7 +304,6 @@ gitlab/gitlab-runner:latest
 docker exec -it gitlab-runner gitlab-runner register --run-untagged --locked=false
 ```
 
-
 # Введение в мониторинг
 
 #### План:
@@ -321,6 +320,7 @@ docker exec -it gitlab-runner gitlab-runner register --run-untagged --locked=fal
 Мониторинг осуществляется доступностью портов сервисов, а так же при помощи `Node-exporter`
 
 после развертывания prometheus будет доступен на порту `9000`
+
 # Мониторинг приложенияи инфраструктуры
 
 #### План:
@@ -404,3 +404,4 @@ Zipkin используется для распределенного трейс
 
 
 Так же наше приложение было описано и развернуто в Kubernetes.
+
