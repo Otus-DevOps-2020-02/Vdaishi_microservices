@@ -13,19 +13,34 @@ services:
     networks:
       - back_net
   post:
-    image: ${USER_NAME}/post:${VERSION_POST:-1.1}
+    image: ${USER_NAME}/post:${VERSION_POST:-latest}
+    environment:
+      - ZIPKIN_ENABLED=${ZIPKIN_ENABLED}
     networks:
       - back_net
       - front_net
+    logging:
+      driver: "fluentd"
+      options:
+        fluentd-address: localhost:24224
   comment:
-    image: ${USER_NAME}/comment:${VERSION_COMMENT:-2.0}
+    image: ${USER_NAME}/comment:${VERSION_COMMENT:-latest}
+    environment:
+      - ZIPKIN_ENABLED=${ZIPKIN_ENABLED}
     networks:
       - back_net
       - front_net
   ui:
-    image: ${USER_NAME}/ui:${VERSION_UI:-2.0}
+    image: ${USER_NAME}/ui:${VERSION_UI:-latest}
+    environment:
+      - ZIPKIN_ENABLED=${ZIPKIN_ENABLED}
     ports:
       - ${PORT_PUMA:-9292}:${PORT_UI:-9292}/tcp
+    logging:
+      driver: "fluentd"
+      options:
+        fluentd-address: localhost:24224
+        tag: service.ui
     networks:
       - front_net
 
